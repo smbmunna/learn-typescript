@@ -84,7 +84,7 @@ const adminUser = {
 const webUser = null;
 const defaultName = webUser ?? 'Guest';
 const searchName = (text) => {
-    console.log('Searching ', text ?? 'no text to search');
+    console.log('Searching... ', text ?? 'no text to search');
 };
 searchName(null);
-//# sourceMappingURL=index.js.map
+//# sourceMappingURL=day_01.js.map
