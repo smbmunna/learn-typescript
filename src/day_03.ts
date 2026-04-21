@@ -105,3 +105,27 @@ type Owner={
     bike: string; 
     ship: string; 
 }
+
+//--------mapped types
+
+type AreaNumber= {
+    height: number; 
+    width: number; 
+}
+
+type AreaString={
+    [key in keyof AreaNumber]: string; 
+}
+
+//mapped types with generics
+type BooleanMap <T>= {
+    [key in keyof T]: boolean
+}
+
+type User={
+    name: string; 
+    age: number; 
+    address: string; 
+}
+
+type NewBooleanType= BooleanMap<User>; 
