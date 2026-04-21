@@ -34,12 +34,21 @@ const resolvePromise = async () => {
     // console.log(data);
     return data;
 };
-// resolvePromise(); 
-// json placeholder example
 const getTodoData = async () => {
     const res = await fetch('https://jsonplaceholder.typicode.com/todos/1');
     const data = await res.json();
-    console.log(data);
+    return data;
 };
-getTodoData();
+function getValue(flag) {
+    if (flag) {
+        return 'Munna';
+    }
+    else {
+        return 42;
+    }
+}
+const str = getValue(true);
+const numbr = getValue(false);
+console.log(str);
+console.log(numbr);
 //# sourceMappingURL=day_03.js.map

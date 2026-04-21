@@ -64,3 +64,44 @@ const getTodoData = async (): Promise<Todo> => {
     return data;
 }
 
+//...............Conditional types
+
+type NotNullable <T>= T extends null | undefined ? never : T; 
+
+type A= NotNullable <null|undefined> ; //A becomes 'never'
+type B= NotNullable <string>;  // B becomes 'string'
+type C= NotNullable <number | boolean>; // C becomes 'number or boolean' 
+
+// Functional example 
+type ReturnTypeBasedOnTheInput<T extends boolean> = T extends true ? string : number; 
+
+function getValue<T extends boolean>(flag : T){
+    if(flag){
+        return 'Munna' as ReturnTypeBasedOnTheInput<T>; 
+    }else{
+        return 42 as ReturnTypeBasedOnTheInput<T>; 
+    }
+}
+
+const str= getValue(true); 
+const numbr= getValue(false); 
+
+//console.log(str); 
+//console.log(numbr); 
+
+
+// Another conditional type example 
+//type CheckVehicle <T>= T extends 'car' | 'bike' | 'ship' ? true : false; 
+type CheckVehicle <T>= T extends keyof Owner ? true : false; 
+
+type HasCar= CheckVehicle<'car'> ; //true
+type HasBike= CheckVehicle<'bike'> ; //true
+type HasShip= CheckVehicle<'ship'> ; //true
+type HasBicycle= CheckVehicle<'bicycle'> ; //False
+
+//to avoid hardcode type
+type Owner={
+    car: string; 
+    bike: string; 
+    ship: string; 
+}
