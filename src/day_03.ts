@@ -128,4 +128,48 @@ type User={
     address: string; 
 }
 
-type NewBooleanType= BooleanMap<User>; 
+type NewBooleanType= BooleanMap<User>; // All properties will now have the type boolean
+// To keep all the types as the source type. // [key in keyof T]: T[key]
+
+//.......................TS Utility types
+type Person={
+    name: string; 
+    age: number;
+    contact ?: number; 
+    address: string; 
+}
+
+//Pick type
+type PersonNameAge= Pick<Person, "name"| "age">  // Pick only name and age property from the person type
+//Omit types
+type PersonNameAgeAddress= Omit<Person, 'contact'>;  // Contact property will be omitted 
+//Required types
+type PersonRequired= Required<Person> // All properties will be required now. 
+//Partial 
+type PersonPartial= Partial<Person>; //Every property will be optional 
+//Read only property
+type PersonReadOnly= Readonly<Person>; 
+const person1: PersonReadOnly={
+    name: 'Munna', 
+    age: 69, 
+    contact: 323232, 
+    address: 'kushtia'
+}
+
+//person1.address= 'dhaka'; // not allowed. cz all the properties of the person object is readonly. 
+
+//Record
+type MyObj= Record<string, string>  // Type of this object will be a key value pair of strings 
+
+const recordObj: MyObj= {
+    name: 'Chris', 
+    age: '30', 
+    address: 'street address'
+}
+
+// another example 
+const iphone: Record<string, unknown>={
+    model: 'iphone 12', 
+    memory: 300, 
+    oled: true, 
+}

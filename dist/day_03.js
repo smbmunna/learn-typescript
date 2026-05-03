@@ -49,6 +49,21 @@ function getValue(flag) {
 }
 const str = getValue(true);
 const numbr = getValue(false);
-console.log(str);
-console.log(numbr);
+const person1 = {
+    name: 'Munna',
+    age: 69,
+    contact: 323232,
+    address: 'kushtia'
+};
+const recordObj = {
+    name: 'Chris',
+    age: '30',
+    address: 'street address'
+};
+// another example 
+const iphone = {
+    model: 'iphone 12',
+    memory: 300,
+    oled: true,
+};
 //# sourceMappingURL=day_03.js.map
